@@ -1,0 +1,25 @@
+.status-bar {
+    background-color: var(--secondary-bg);
+  .status-container {
+    display: flex;
+    align-items: center; // căn giữa theo chiều dọc
+    justify-content: space-between;
+    background-color: var(--sidebar-bg);
+    padding: 0.75rem 5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin: 30px 20px;
+  }
+
+  .status-localtime,
+  .status-story,
+  .status-profile {
+    color: var(--primary-text);
+    font-size: 14px;
+  }
+
+  .status-story span {
+    font-weight: 500;
+    color: #ddd;
+  }
+}
