@@ -1,0 +1,24 @@
+:root {
+  --primary-bg: #1a1d25;
+  --secondary-bg: #20232f;
+  --sidebar-bg: #1e2029;
+  --chat-input-bg: #292b36;
+  --active-item-bg: #2a2d39;
+  --primary-text: #ffffff;
+  --secondary-text: #8b8d96;
+  --accent-color: #3b82f6;
+  --accent-hover: #60a5fa;
+  --border-color: #31343f;
+  --message-sent: #3b82f6;
+  --message-received: #2a2d39;
+  --status-online: #4ade80;
+  --status-offline: #6b7280;
+  --danger: #ef4444;
+  background-color: gray;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: gray;
+  color: var(--primary-text);
+}

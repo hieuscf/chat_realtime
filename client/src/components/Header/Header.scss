@@ -1,0 +1,13 @@
+.header-container {
+  display: flex;
+  align-items: center; // căn giữa theo chiều dọc
+  justify-content: space-between; 
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.header-navigation{
+    gap: 20px;
+    .nav-item {
+        text-decoration: none;
+    }
+}
