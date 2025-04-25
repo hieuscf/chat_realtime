@@ -9,6 +9,7 @@
   margin: 0 2.5rem;
 }
 
+
 // Sidebar (trái)
 .sidebar {
   width: 500px;
@@ -262,4 +263,70 @@
 .profile {
   position: relative; // hoặc bỏ luôn nếu không cần
   z-index: auto; // hoặc không khai báo nếu không dùng
+}
+
+.profile-sidebar {
+  background-color: var(--sidebar-bg);
+  border-left: 1px solid var(--border-color);
+  border: 1px solid var(--border-color) !important;
+}
+.profile-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-content {
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.button-profile{
+  background-color: var(--secondary-bg) !important;
+  border: none !important;
+  color: #fff;
+}
+.profile-name {
+  margin-top: 0.75rem;
+  font-weight: 500;
+}
+
+.profile-username {
+  color: var(--secondary-text);
+  font-size: 0.875rem;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.profile-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--secondary-text);
+  background-color: var(--secondary-bg) !important;
+  border: none;
+}
+
+.action-icon {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--active-item-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }

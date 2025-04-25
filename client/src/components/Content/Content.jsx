@@ -1,10 +1,24 @@
 import React  , {useState} from 'react'
-import { Search, Mic, Send, Paperclip } from "lucide-react"; // hoặc @mui/icons-material nếu bạn dùng thư viện khác
+import {
+  Search,
+  Mic,
+  Send,
+  Paperclip,
+  X,
+  Home,
+  MessageSquare,
+  Settings,
+  User,
+  LogOut,
+  File,
+  Menu,
+} from "lucide-react"; // hoặc @mui/icons-material nếu bạn dùng thư viện khác
 import { Phone, Video } from "lucide-react";
 import "./Content.scss";
 const Content = () => {
   //const [message, setMessage] = useState("");
   const [activeChat, setActiveChat] = useState("Adrin Alinejad");
+  const [isProfileVisible, setIsProfileVisible] = useState(true); // Mặc định hiển thị
   const users = [
     {
       id: 1,
@@ -98,76 +112,79 @@ const Content = () => {
     },
   ];
 
-   const messages = [
-     {
-       id: 1,
-       sender: "Adrin Alinejad",
-       content: "Hi buddy, How you doing?",
-       timestamp: "04:23 PM",
-       isMe: false,
-     },
-     {
-       id: 2,
-       sender: "Adrin Alinejad",
-       content:
-         "I'm waiting for your replay. Can you send it to me by night after that I can check it, and send it back to you. Ok ?",
-       timestamp: "04:24 PM",
-       isMe: false,
-     },
-     {
-       id: 3,
-       sender: "Jerry Nitel",
-       content: "Oh, I forget, I'll send it as a Zip file 😊",
-       timestamp: "04:25 PM",
-       isMe: true,
-     },
-     {
-       id: 4,
-       sender: "Jerry Nitel",
-       content: "I'm working on it. After I finished, I'll send it to you Jerry",
-       timestamp: "04:26 PM",
-       isMe: true,
-     },
-     {
-       id: 5,
-       sender: "Jerry Nitel",
-       content: "and please send me new documentation. Thanks",
-       timestamp: "04:26 PM",
-       isMe: true,
-     },
-     {
-       id: 6,
-       sender: "Adrin Alinejad",
-       content: "Ok, I send it just right now, check your email",
-       timestamp: "04:53 PM",
-       isMe: false,
-     },
-     {
-       id: 7,
-       sender: "Adrin Alinejad",
-       content: "Thanks 🔥",
-       timestamp: "04:53 PM",
-       isMe: false,
-     },
-   ]
-  //  const pinnedFiles = [
-  //    { id: 1, name: "file1.png", thumbnail: "/api/placeholder/50/50" },
-  //    { id: 2, name: "file2.pdf", thumbnail: "/api/placeholder/50/50" },
-  //    { id: 3, name: "file3.jpg", thumbnail: "/api/placeholder/50/50" },
-  //  ];
+  const messages = [
+    {
+      id: 1,
+      sender: "Adrin Alinejad",
+      content: "Hi buddy, How you doing?",
+      timestamp: "04:23 PM",
+      isMe: false,
+    },
+    {
+      id: 2,
+      sender: "Adrin Alinejad",
+      content:
+        "I'm waiting for your replay. Can you send it to me by night after that I can check it, and send it back to you. Ok ?",
+      timestamp: "04:24 PM",
+      isMe: false,
+    },
+    {
+      id: 3,
+      sender: "Jerry Nitel",
+      content: "Oh, I forget, I'll send it as a Zip file 😊",
+      timestamp: "04:25 PM",
+      isMe: true,
+    },
+    {
+      id: 4,
+      sender: "Jerry Nitel",
+      content: "I'm working on it. After I finished, I'll send it to you Jerry",
+      timestamp: "04:26 PM",
+      isMe: true,
+    },
+    {
+      id: 5,
+      sender: "Jerry Nitel",
+      content: "and please send me new documentation. Thanks",
+      timestamp: "04:26 PM",
+      isMe: true,
+    },
+    {
+      id: 6,
+      sender: "Adrin Alinejad",
+      content: "Ok, I send it just right now, check your email",
+      timestamp: "04:53 PM",
+      isMe: false,
+    },
+    {
+      id: 7,
+      sender: "Adrin Alinejad",
+      content: "Thanks 🔥",
+      timestamp: "04:53 PM",
+      isMe: false,
+    },
+  ];
+  /*const pinnedFiles = [
+      { id: 1, name: "file1.png", thumbnail: "/api/placeholder/50/50" },
+      { id: 2, name: "file2.pdf", thumbnail: "/api/placeholder/50/50" },
+      { id: 3, name: "file3.jpg", thumbnail: "/api/placeholder/50/50" },
+    ];*/
   // Lọc và sắp xếp danh sách người dùng
   const onlineUsers = users.filter((user) => user.status === "online");
   const offlineUsers = users.filter((user) => user.status === "offline");
   const sortedUsers = [...onlineUsers, ...offlineUsers]; // Gộp online và offline, online lên trước
-  
+
   const [message, setMessage] = useState(""); // Thêm state để lưu nội dung nhập
 
   // Hàm xử lý khi gửi tin nhắn
-  
-  
+
   return (
     <div className="main-content">
-      <div className="content-container">
+      <div
+        className={`content-container ${
+          isProfileVisible ? "" : "profile-hidden"
+        }`}
+      >
         <div className="sidebar">
           <div className="search-box">
             <Search className="search-icon" size={16} />
@@ -282,7 +299,47 @@ const Content = () => {
           </div>
         </div>
         <div className="content-profile">
-          <h1>pro</h1>
+          <div className="profile-header">
+            <span>Profile</span>
+            <button className="button-profile" onClick={() => setIsProfileVisible(false)}>Close</button>
+          </div>
+
+          <div className="profile-content">
+            <img
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+              alt="User avatar"
+              className="profile-avatar"
+            />
+            <h3 className="profile-name">Adrin Alinejad</h3>
+            <p className="profile-username">@slinejad</p>
+          </div>
+
+          <div className="profile-actions">
+            <button className="profile-action">
+              <div className="action-icon">
+                <MessageSquare size={16} />
+              </div>
+              <span>Chat</span>
+            </button>
+            <button className="profile-action">
+              <div className="action-icon">
+                <User size={16} />
+              </div>
+              <span>Profile</span>
+            </button>
+            <button className="profile-action">
+              <div className="action-icon">
+                <Phone size={16} />
+              </div>
+              <span>Call</span>
+            </button>
+            <button className="profile-action">
+              <div className="action-icon">
+                <Menu size={16} />
+              </div>
+              <span>More</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
